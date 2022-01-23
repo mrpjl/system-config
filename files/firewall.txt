@@ -1,0 +1,16 @@
+# Empty iptables rule file
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT DROP [0:0]
+-A INPUT -j LOG --log-prefix='[log=Output]' --log-level=6
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -m state ! --state NEW -j DROP
+-A INPUT -i lo -j ACCEPT
+-A OUTPUT -j LOG --log-prefix='[log=Output]' --log-level=6
+-A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --dport 443 -j ACCEPT
+-A OUTPUT -p udp -m udp --dport 53 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --dport 5037 -j ACCEPT 
+COMMIT

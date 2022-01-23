@@ -1,0 +1,4 @@
+#<domain>      <type>  <item>         <value>
+#
+#
+*                hard    core            0

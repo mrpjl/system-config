@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function send_notification() {
+	brightness=$(brightnessctl | awk '/Current/ {print $4}' | grep -o -E '[0-9]+')
+	dunstify -a "changebrightness" -u low -r "9994" -h int:value:"$brightness" -i display-brightness-symbolic.symbolic "Brightness: ${brightness}%" -t 2000
+}
+
+send_notification
+

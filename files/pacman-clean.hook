@@ -1,0 +1,11 @@
+# NOTE: will not run if the transaction is interrupted for any reason
+
+[Trigger]
+Operation = Upgrade
+Type = Path
+Target = *
+
+[Action]
+Description = Clean the Cache folder ...
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/clean-manjaro.sh

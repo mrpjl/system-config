@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Remove packages which are not Installed.
+paccache -ruvk0
+
+# Remove all old packages from Cache except the 2 latest versions
+paccache -rvk2
+
+# Retain only 50 MB of journalctl log
+# journalctl --vacuum-time=50M
+
+# Remove cache files older than 30 days
+find ~/.cache/ -type f -atime +30 -delete

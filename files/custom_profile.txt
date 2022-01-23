@@ -1,0 +1,10 @@
+# Set our umask
+umask 027
+
+# To disable the coredump
+ulimit -c 0
+
+# Session will kill if idle for 10 mins
+TMOUT=600
+readonly TMOUT
+export TMOUT
