@@ -1,0 +1,66 @@
+!! Colorscheme
+!
+! https://lukas.zapletalovi.com/2013/07/hidden-gems-of-xterm.html
+! Gruv-box color scheme https://github.com/morhetz/gruvbox-contrib/blob/master/xresources/gruvbox-dark.xresources
+
+XTerm*font: -*-terminus-*-*-*-18-*-*-*-*-*-iso10646-1
+
+! special
+! XTerm.vt100.foreground: #fbf1c7
+! XTerm.vt100.background: #282828
+! XTerm.vt100.cursorColor: #afbfbf
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #fbf1c7
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
+
+XTerm.vt100.faceName: terminus
+XTerm*faceNameDoublesize: Font Awesome
+XTerm.utf8: 2
+XTerm.vt100.faceSize: 10
+
+XTerm.vt100.loginShell: true
+
+! copy & paste like the gnome shell
+XTerm.*.translations: #override \n\
+Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
+Ctrl <Key>minus: smaller-vt-font() \n\
+Ctrl <Key>plus: larger-vt-font()
+
+! Enable highlight to copy
+XTerm*selectToClipboard: true
+
+! make the alt key behave normally
+XTerm.vt100.metaSendsEscape: true
+
+! scrollback history
+XTerm.saveLines: 10000
+
+! silence please
+XTerm.bellIsUrgent: true
+XTerm*visualBell: false

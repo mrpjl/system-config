@@ -10,8 +10,8 @@ if [[ ${EUID} == 0 ]] ; then
 else
         #PROMPT_DIRTRIM=1
 		#PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
-		#PS1='\[\033[01;37m\]\w`if [ $? = 0 ]; then echo "\[\033[01;32m\][✔]"; else echo "\[\033[01;31m\][✘]"; fi` \[\033[00m\]>\[\033[02;32m\]>\[\033[01;36m\]>\[\033[00m\] '
-        PS1='\[\033[01;36m\]\W `if [ $? = 0 ]; then echo "\[\033[01;36m\]>>"; else echo "\[\033[01;31m\]>>"; fi`\[\033[00m\] ' 
+		PS1='\[\033[01;36m\]\W `if [ $? = 0 ]; then echo "\[\033[01;32m\][✔]"; else echo "\[\033[01;31m\][✘]"; fi` \[\033[00m\]>\[\033[02;32m\]>\[\033[01;36m\]>\[\033[00m\] '
+        #PS1='\[\033[01;36m\]\W `if [ $? = 0 ]; then echo "\[\033[01;36m\]>>"; else echo "\[\033[01;31m\]>>"; fi`\[\033[00m\] ' 
         #PS1='\[\033[01;36m\]╭────`if [ $? = 0 ]; then echo "\[\033[01;32m\][✔]"; else echo "\[\033[01;31m\][✘]"; fi`\[\033[01;36m\]───────(\#)───(`time $1`)────[\W]────\[\033[01;33m\]$(git branch 2>/dev/null | cut -d" " -f2)\[\033[01;36m\]────»\n╰─▶\[\033[00m\$ '
 fi
 
@@ -28,17 +28,19 @@ alias lla='ls -la'
 alias np='nano -w PKGBUILD'
 alias more=less
 alias sudo='sudo '
-alias lynis='sudo lynis audit system'
+# alias lynis='sudo lynis audit system'
 alias c='clear'
 alias no='nano'
 alias pac='sudo pacman -Syuw'
 alias you='youtube-dl '
+alias you1='yt-dlp '
 alias pnew='sudo DIFFPROG=meld pacdiff'
 alias call='adb -s ZF6223VF2K shell am start -a android.intent.action.CALL -d tel: '  # to use with ADB
 alias backup="~/Documents/backup.sh"
 alias dev="cd /mnt/ECF6418FF6415B4A/development/"
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias clean='~/.config/scripts/clean.sh'
+alias scan='~/.config/scripts/scan'
 alias camera='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 
 alias cdt='cd "$(find ~ -type d | fzf)" '
@@ -82,7 +84,3 @@ export HISTTIMEFORMAT='%d-%m-%Y %T '
 
 #PS1='[\u@\h \W]\$ '
 
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION

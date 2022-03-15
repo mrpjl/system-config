@@ -1,0 +1,9 @@
+#!/bin/bash
+
+arch-audit -f "%n | %t | %s" -C always| column -t -s "|"
+
+sudo lynis audit system
+
+sudo rkhunter --update
+
+sudo rkhunter -c --sk

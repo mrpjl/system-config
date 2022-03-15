@@ -28,3 +28,6 @@ cp -r ~/.config/picom ./files/
 # Copy Terraform Versions
 #TBD
 
+# Copy .Xresource file
+cp ~/.Xresources ./files/
+
