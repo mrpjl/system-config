@@ -18,6 +18,7 @@ cp ~/.bashrc ./files/
 # Copy GRUVBOX ColorScheme for VIM
 git clone https://github.com/morhetz/gruvbox.git  /tmp/gruvbox
 cp /tmp/gruvbox/colors/* ./files/
+rm -rf /tmp/gruvbox/
 
 # Copy Dunst Configuration
 cp -r ~/.config/dunst ./files/
