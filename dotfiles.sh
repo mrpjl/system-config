@@ -32,3 +32,8 @@ cp -r ~/.config/picom ./files/
 # Copy .Xresource file
 cp ~/.Xresources ./files/
 
+# Copy Qutebrowser config.py file.
+cp ~/.config/qutebrowser/config.py ./files/qutebrowser/
+cp ~/.config/qutebrowser/quickmarks ./files/qutebrowser/
+cp ~/.config/qutebrowser/bookmarks/urls ./files/qutebrowser/
+

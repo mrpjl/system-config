@@ -21,9 +21,9 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MBi
 
 alias ls='ls --color=auto'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
+alias ll='ls -lh'
+alias la='ls -ah'
+alias lla='ls -lah'
 
 alias np='nano -w PKGBUILD'
 alias more=less

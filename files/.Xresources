@@ -6,13 +6,13 @@
 XTerm*font: -*-terminus-*-*-*-18-*-*-*-*-*-iso10646-1
 
 ! special
-! XTerm.vt100.foreground: #fbf1c7
-! XTerm.vt100.background: #282828
-! XTerm.vt100.cursorColor: #afbfbf
+XTerm.vt100.foreground: #fbf1c7
+XTerm.vt100.background: #282828
+XTerm.vt100.cursorColor: #afbfbf
 ! hard contrast: *background: #1d2021
-*background: #282828
+! *background: #282828
 ! soft contrast: *background: #32302f
-*foreground: #fbf1c7
+! *foreground: #fbf1c7
 ! Black + DarkGrey
 *color0:  #282828
 *color8:  #928374
@@ -36,7 +36,7 @@ XTerm*font: -*-terminus-*-*-*-18-*-*-*-*-*-iso10646-1
 *color14: #8ec07c
 ! LightGrey + White
 *color7:  #a89984
-*color15: #ebdbb2
+*color15: #fbf1c7
 
 XTerm.vt100.faceName: terminus
 XTerm*faceNameDoublesize: Font Awesome
