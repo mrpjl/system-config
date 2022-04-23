@@ -9,6 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Gruvbox theme for I3
+include $HOME/.config/i3/gruvbox.conf 
 set $mod Mod4
 set $alt Mod1
 set $scripts /home/me/.config/scripts
@@ -225,7 +227,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && $scr
 
 # Display wallpaper
 exec --no-startup-id feh --bg-fill /home/me/Pictures/au.jpg
-
 # Assign Workspace
 for_window [class="Chromium"] move to workspace $ws2
 for_window [class="firefox"] move to workspace $ws2

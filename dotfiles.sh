@@ -6,13 +6,13 @@
 #                                                     #
 #######################################################
 
-# Copy i3 Cnfig file
+# Copy i3 Config file
 cp -r ~/.config/i3 ./files/
 
 # Copy the Scripts
 cp -r ~/.config/scripts ./files/
 
-# Copy BAshrc file
+# Copy Bashrc file
 cp ~/.bashrc ./files/
 
 # Copy GRUVBOX ColorScheme for VIM
