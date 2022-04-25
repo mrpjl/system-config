@@ -28,6 +28,10 @@ sudo pacman -Su --needed keepassxc meld chromium \
                         vim android-tools virtualbox \
                         linux${A}${B}-virtualbox-host-modules vagrant
 
+
+echo -e "\n\e[1;33m          ++++++++++ Application COnfiguration ++++++++++ \e[1;34m"
+xdg-mime default org.pwmt.zathura.desktop application/pdf
+
 sudo pamac zoom virtualbox-ext-oracle sublime-text-4
 echo $'\u2714' "Installed Required Packages"
 

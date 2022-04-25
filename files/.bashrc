@@ -51,7 +51,8 @@ alias clean='~/.config/scripts/clean.sh'
 alias scan='~/.config/scripts/scan'
 alias camera='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 
-alias cdt='cd "$(find ~ -type d | fzf)" '
+# alias cdt='cd "$(find ~ -type d | fzf)" '
+alias cdt='cd "$(find ~ -type d ! -path "*/.local/*" ! -path "*/.cache/*" ! -path "*/.mozilla/*" | fzf)" '
 alias cde='cd "$(find /etc -type d | fzf)" '
 alias cdm='cd "$(find /media -type d | fzf)" '
 
@@ -65,10 +66,10 @@ open() {
     # xdg-open "$(find -type f | fzf)"
     A=$(find -type f | fzf | sed 's/^..//' | tr -d '\n')
     case $A in
-        *.pdf)      zathura "$A"    ;;
-        *config*)   $EDITOR "$A"    ;;
-        *.txt)      $EDITOR "$A"    ;;
-        *)          xdg-open "$A"   ;;
+        *.pdf)      zathura "$A" &    ;;
+        *config*)   $EDITOR "$A" &    ;;
+        *.txt)      $EDITOR "$A" &    ;;
+        *)          xdg-open "$A" &   ;;
         # *)          echo "Use xdg-open to view file '$A'" ;;
     esac
 }
@@ -108,6 +109,12 @@ ex ()
   fi
 }
 
+# mount the external drives
+attach ()
+{
+    sudo mount /dev/$1 $HOME/Mount/$2/ -o umask=000
+}
+
 ### Alias End
 
 # Bash won't get SIGWINCH if another process is in the foreground.
@@ -127,4 +134,7 @@ HISTSIZE= HISTFILESIZE= # Infinate history
 HISTCONTROL=ignoreboth:erasedumps
 HISTIGNORE='ls*:cd*:c:history*:pac'
 HISTTIMEFORMAT='%d-%m-%Y %T '
+
+# The colors to be automatically loaded when you open a terminal
+eval "$(dircolors /home/me/.config/dircolors/.dircolors)";
 

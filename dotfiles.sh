@@ -37,3 +37,5 @@ cp ~/.config/qutebrowser/config.py ./files/qutebrowser/
 cp ~/.config/qutebrowser/quickmarks ./files/qutebrowser/
 cp ~/.config/qutebrowser/bookmarks/urls ./files/qutebrowser/
 
+# Copy the dircolors file
+cp ~/.config/dircolors/.dircolors ./files/
