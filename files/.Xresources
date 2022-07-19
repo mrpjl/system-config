@@ -51,8 +51,11 @@ XTerm.vt100.loginShell: true
 XTerm*vt100.translations: #override \n\
 Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
 Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
+Ctrl Shift <Key>I: set-reverse-video(toggle) \n\
+Ctrl Shift <Key>S: secure() \n\
 Ctrl <Key>minus: smaller-vt-font() \n\
 Ctrl <Key>plus: larger-vt-font()
+
 ! Enable highlight to copy
 XTerm*selectToClipboard: true
 
@@ -66,7 +69,9 @@ XTerm.saveLines: 10000
 XTerm.bellIsUrgent: true
 XTerm*visualBell: false
 
-
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! URXVT COnfig
-!
+! Sxiv Config
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Sxiv.background: #282828
+Sxiv.foreground: #83a598

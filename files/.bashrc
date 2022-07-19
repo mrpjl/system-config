@@ -39,6 +39,7 @@ alias sudo='sudo '
 alias c='clear'
 alias no='nano'
 alias p='sudo pacman'
+alias pac='sudo pacman -Syuw'
 alias mirror='sudo reflector @/etc/xdg/reflector/reflector.conf'
 alias you='youtube-dl '
 alias you1='yt-dlp '
@@ -138,3 +139,11 @@ HISTTIMEFORMAT='%d-%m-%Y %T '
 # The colors to be automatically loaded when you open a terminal
 eval "$(dircolors /home/me/.config/dircolors/.dircolors)";
 
+# Pretty-print man(1) pages.
+export LESS_TERMCAP_mb=$'\E[1;91m'
+export LESS_TERMCAP_md=$'\E[1;91m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[1;93m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[1;92m'

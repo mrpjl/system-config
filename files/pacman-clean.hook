@@ -8,4 +8,4 @@ Target = *
 [Action]
 Description = Clean the Cache folder ...
 When = PostTransaction
-Exec = /usr/share/libalpm/scripts/clean-manjaro.sh
+Exec = /etc/pacman.d/hooks.bin/pacman-clean 

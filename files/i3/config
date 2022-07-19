@@ -9,8 +9,6 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-# Gruvbox theme for I3
-include $HOME/.config/i3/gruvbox.conf 
 set $mod Mod4
 set $alt Mod1
 set $scripts /home/me/.config/scripts
@@ -201,32 +199,66 @@ bindsym $mod+r mode "resize"
 #    My custom Configurations   #
 #################################
 
+# set primary gruvbox colorscheme colors
+set $black      #282828
+set $red        #cc241d
+set $green      #98971a
+set $yellow     #d79921
+set $blue       #458588
+set $purple     #b16286
+set $cyan       #689d68
+set $gray       #a89984
+set $darkgray   #1d2021
+set $white      #fbf1c7
+
 bar {
 	status_command i3blocks -c /home/me/.config/i3/i3blocks.conf
     position top
     font pango:Terminus Bold 9
+    colors {
+        # bar background color
+        # background $black
+        # text color used for blocks that do not have a color specified.
+        statusline $white
+        # workspaces section            
+        #                    border     backgr      text
+        focused_workspace    $cyan      $aqua       $darkgray
+        inactive_workspace   $darkgray  $darkgray   $yellow
+        active_workspace     $darkgray  $darkgray   $yellow
+        urgent_workspace     $red       $red        $black
+    }
 }
 
-for_window [class="^.*"] border pixel 0
+#start of window title bars & borders section
 
-#Custom Wallpaper
-# exec nitrogen --restore
+# class                 border      backgr      text        indicator   child_border
+client.focused          $blue       $blue       $darkgray   $purple     $cyan
+client.focused_inactive $darkgrey   $darkgray   $yellow     $purple     $green
+client.unfocused        $darkgrey   $darkgray   $yellow     $purple     $purple
+client.urgent           $red        $red        $white      $red        $red
+client.placeholder      $darkgrey   $cyan       $white      $yellow     $green
+
+#end of window title bars & borders section
+
+for_window [class="^.*"] border pixel 2
 
 ## Custom Key Bindings
-#
+
 bindsym $mod+x exec --no-startup-id i3lock -c 000000
 bindsym $mod+period exec --no-startup-id poweroff
+bindsym $mod+comma exec --no-startup-id reboot
 #for_window [window_role="Tilda"] floating disable  
 bindsym $alt+k exec --no-startup-id keepassxc
 bindsym $alt+f exec --no-startup-id firefox
 bindsym $alt+q exec --no-startup-id qutebrowser
+bindsym $alt+comma exec --no-startup-id python $HOME/Documents/power.py
 
 # Binding Brightness key
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && $scripts/changebrightness
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && $scripts/changebrightness
 
 # Display wallpaper
-exec --no-startup-id feh --bg-fill /home/me/Pictures/au.jpg
+exec --no-startup-id feh --bg-scale /home/me/Pictures/ce.png
 # Assign Workspace
 for_window [class="Chromium"] move to workspace $ws2
 for_window [class="firefox"] move to workspace $ws2
@@ -234,11 +266,11 @@ for_window [class="qutebrowser"] move to workspace $ws2
 for_window [class="libreoffice-writer"] move to workspace $ws4
 # Window Compositor
 exec --no-startup-id picom -f
-gaps inner 2
+gaps inner 5
+gaps outer 2
 
 # Making Programs floating
-for_window [class="KeePassXC"] floating enable
-for_window [class="KeePassXC"] resize set 800 544
+for_window [class="KeePassXC"] floating enable,resize set 800 544
 for_window [class="Soffice"] resize set 800 544; move position center
 #for_window [class="Pavucontrol"] floating enable
 
@@ -249,3 +281,6 @@ for_window [class="KeePassXC"] move to workspace $ws3
 # Taking screenshot
 bindsym Print exec --no-startup-id scrot -u $HOME/Pictures/`date +%d-%m-%Y_%H:%M:%S`-focus.png
 bindsym $mod+Print exec --no-startup-id scrot $HOME/Pictures/`date +%d-%m-%Y_%H:%M:%S`-full.png
+
+hide_edge_borders smart
+smart_gaps on

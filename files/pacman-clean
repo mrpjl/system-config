@@ -11,3 +11,9 @@ paccache -rvk2
 
 # Remove cache files older than 30 days
 find ~/.cache/ -type f -atime +30 -delete
+
+# List all the Orphaned packages
+orphans=$(pacman -Qtdq)
+if [[ -n "$orphans" ]]; then
+  echo -e "\e[1mOrphan packages found:\e[0m\n$orphans\n\e[1mPlease check and remove packages no longer needed\e[0m"
+fi
