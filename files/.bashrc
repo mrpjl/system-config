@@ -46,11 +46,12 @@ alias you1='yt-dlp '
 alias pnew='sudo DIFFPROG=meld pacdiff'
 alias call='adb -s ZF6223VF2K shell am start -a android.intent.action.CALL -d tel: '  # to use with ADB
 alias backup="~/Documents/backup.sh"
-alias dev="cd /mnt/ECF6418FF6415B4A/development/"
+alias dev="cd /home/me/Windows/ECF6418FF6415B4A/development"
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias clean='~/.config/scripts/clean.sh'
 alias scan='~/.config/scripts/scan'
 alias camera='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
+alias pyenv='source ~/Windows/ECF6418FF6415B4A/development/python/.linux_env/bin/activate'
 
 # alias cdt='cd "$(find ~ -type d | fzf)" '
 alias cdt='cd "$(find ~ -type d ! -path "*/.local/*" ! -path "*/.cache/*" ! -path "*/.mozilla/*" | fzf)" '
@@ -114,7 +115,17 @@ ex ()
 attach ()
 {
     sudo mount /dev/$1 $HOME/Mount/$2/ -o umask=000
-}
+} 
+
+# read in my aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# read in my shell functions
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
 
 ### Alias End
 
@@ -126,7 +137,7 @@ shopt -s checkwinsize
 
 shopt -s expand_aliases # expand aliases
 shopt -s autocd
-shopt -s cdspell # autocorrects cd misspellings
+shopt -s cdspell # autocorrects cd misspellings 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
@@ -147,3 +158,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[1;93m'
 export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[1;92m'
+
+# Add script folder to path
+export PATH=$PATH:/home/me/.config/scripts
+

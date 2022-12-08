@@ -1,0 +1,4 @@
+#!/bin/sh
+
+
+dmenu -i -nb "#282828" -nf "#EBDBB2" -sb "#689D6A" -sf "#282828" "$@"

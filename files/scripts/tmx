@@ -1,0 +1,4 @@
+#!/bin/bash
+tmux new-session -d -s "who am I" -n Bashing 
+tmux new-window -n Viming
+tmux -2 attach-session -d

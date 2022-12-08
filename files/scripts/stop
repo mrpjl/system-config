@@ -1,0 +1,11 @@
+#!/bin/bash
+
+RET=$(echo -e "logout\nlock\nshutdown\nreboot\ncancel" | ./.config/scripts/mydmenu -l 5 -p "Power Menu")
+echo "$PWD"
+case $RET in
+    shutdown) poweroff ;;
+    reboot) reboot ;;
+    logout) i3-msg exit ;;
+    lock) loginctl lock-session ;;
+    *) ;;
+esac
