@@ -1,0 +1,30 @@
+#!/bin/bash
+
+desktop="/home/me/Windows/BC38214F38210A4A/Wall/desktop"
+phone="/home/me/Windows/BC38214F38210A4A/Wall/phone"
+tmpFile="/tmp/temp.json"
+url="arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=IN&pid=338387&lc=en-IN&ua=WindowsShellClient%2F0"
+
+# Download the json file containing image URL info.
+curl -s $url -o $tmpFile 
+
+# Remove back slashes, opening quotes & closing quotes.
+sed --in-place 's/\\//g;s/\"{/{/g;s/}\"/}/g' $tmpFile
+
+# desktop image url and name fetch
+deskLine=$(cat $tmpFile | jq -r '.batchrsp.items[].item.ad | "\(.title_text.tx) | \(.image_fullscreen_001_landscape.u)"')
+echo $deskLine >> "$desktop/wallpapers.txt"
+name=$(echo $deskLine | cut -d"|" -f1)
+deskUrl=$(echo $deskLine | cut -d"|" -f2)
+echo $deskLine
+file=$(echo $name | sed 's/[ ]/-/g;s/[.,!@#$%^&*()_\x27]//g')
+curl -s $(echo $deskUrl | sed 's/https:\/\///') -o "$desktop/$file"
+feh --bg-scale "$desktop/$file"
+
+
+# phone url and name fetch
+phoneLine=$(cat $tmpFile | jq -r '.batchrsp.items[].item.ad | "\(.title_text.tx) | \(.image_fullscreen_001_portrait.u)"')
+echo $phoneLine >> "$phone/wallpapers.txt"
+phoneUrl=$(echo $phoneLine | cut -d"|" -f2)
+curl -s $(echo $phoneUrl | sed 's/https:\/\///') -o "$phone/$(echo $name | sed 's/[ ]/-/g;s/[.,!@#$%^&*()_\x27]//g').jpg"
+

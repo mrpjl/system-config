@@ -127,6 +127,7 @@ harfbuzz-icu
 hdparm
 hicolor-icon-theme
 hidapi
+http-parser
 hunspell
 hwdata
 hwloc
@@ -147,6 +148,7 @@ iso-codes
 iw
 jack2
 jansson
+jq
 json-c
 json-glib
 jsoncpp
@@ -208,6 +210,7 @@ libffi
 libfontenc
 libfreehand
 libgcrypt
+libgit2
 libglvnd
 libgpg-error
 libgudev
@@ -391,6 +394,7 @@ nss
 ntfs-3g
 numlockx
 ocl-icd
+oniguruma
 opencore-amr
 openjpeg2
 openmpi
