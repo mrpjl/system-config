@@ -17,14 +17,15 @@ echo $deskLine >> "$desktop/wallpapers.txt"
 name=$(echo $deskLine | cut -d"|" -f1)
 deskUrl=$(echo $deskLine | cut -d"|" -f2)
 echo $deskLine
-file=$(echo $name | sed 's/[ ]/-/g;s/[.,!@#$%^&*()_\x27]//g')
+file=$(echo $name | sed 's/[ ]/-/g;s/[.,!@#$%^&*()_\x27]//g').jpg
 curl -s $(echo $deskUrl | sed 's/https:\/\///') -o "$desktop/$file"
 feh --bg-scale "$desktop/$file"
+notify-send -e "Wallpaper:" "$name"
 
 
 # phone url and name fetch
 phoneLine=$(cat $tmpFile | jq -r '.batchrsp.items[].item.ad | "\(.title_text.tx) | \(.image_fullscreen_001_portrait.u)"')
 echo $phoneLine >> "$phone/wallpapers.txt"
 phoneUrl=$(echo $phoneLine | cut -d"|" -f2)
-curl -s $(echo $phoneUrl | sed 's/https:\/\///') -o "$phone/$(echo $name | sed 's/[ ]/-/g;s/[.,!@#$%^&*()_\x27]//g').jpg"
+curl -s $(echo $phoneUrl | sed 's/https:\/\///') -o "$phone/$file"
 

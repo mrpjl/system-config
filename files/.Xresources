@@ -69,3 +69,7 @@ XTerm.saveLines: 10000
 XTerm.bellIsUrgent: true
 XTerm*visualBell: false
 
+! SXIV configuration
+Sxiv.background: #232323
+Sxiv.foreground: #fbf1c7
+Sxiv.font: terminus
