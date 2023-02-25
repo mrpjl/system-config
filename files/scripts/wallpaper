@@ -1,7 +1,7 @@
 #!/bin/bash
 
-desktop="/home/me/Windows/BC38214F38210A4A/Wall/desktop"
-phone="/home/me/Windows/BC38214F38210A4A/Wall/phone"
+desktop="/home/me/Windows/BC38214F38210A4A/wall/desktop"
+phone="/home/me/Windows/BC38214F38210A4A/wall/phone"
 tmpFile="/tmp/temp.json"
 url="arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=IN&pid=338387&lc=en-IN&ua=WindowsShellClient%2F0"
 

@@ -219,7 +219,7 @@ bar {
     font pango:Terminus Bold 9
     colors {
         # bar background color
-        background #000000FF
+        background #000000
         # text color used for blocks that do not have a color specified.
         statusline $white
         # workspaces section            
@@ -287,5 +287,5 @@ bindsym $mod+Print exec --no-startup-id scrot $HOME/Pictures/`date +%d-%m-%Y_%H:
 hide_edge_borders smart
 smart_gaps on
 
-# Changge the wallpaper shortcut
+# Change the wallpaper, shortcut
 bindsym $alt+w exec --no-startup-id $scripts/wallpaper

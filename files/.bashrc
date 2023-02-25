@@ -162,3 +162,7 @@ export LESS_TERMCAP_us=$'\E[1;92m'
 # Add script folder to path
 export PATH=$PATH:/home/me/.config/scripts
 
+# Source FZF configurations
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
+

@@ -1,0 +1,34 @@
+#!/bin/bash
+echo $PWD
+#for f in "$(find $1 -type f)"; do nf=$(echo "$f" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g;s/_/-/g;s/[,]//g');echo "$f >>>> $nf";done
+#echo for f in *;do nf=$(echo $f | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g;s/_/-/g;s/,//g');mv "$f" "$nf";echo "$f > $nf";done
+#sleep 5
+#echo for f in */*;do nf=$(echo $f | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g;s/_/-/g;s/,//g');mv "$f" "$nf";echo "$f > $nf";done
+#sleep 5
+#echo for f in *;do nf=$(echo $f | tr '[:upper:]' '[:lower:]' | sed 's/---/-/g;s/--/-/g');mv "$f" "$nf";echo "$f > $nf";done
+#sleep 5
+#echo for f in */*;do nf=$(echo $f | tr '[:upper:]' '[:lower:]' | sed 's/---/-/g;s/--/-/g');mv "$f" "$nf";echo "$f > $nf";done
+
+
+
+
+
+find $1 -type d -print0 | 
+    while IFS= read -r -d '' d
+    do 
+        nd0=$(echo "$d" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g;s/_/-/g;s/[,"]//g')
+        nd1=$(echo "$nd0" | sed "s/---/-/g;s/--/-/g;s/[']//g")
+        mkdir -p $nd1
+        echo "created directory $nd1"
+    done
+
+
+find $1 -type f -print0 | 
+    while IFS= read -r -d '' f
+    do 
+        nf0=$(echo "$f" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g;s/_/-/g;s/[,"]//g')
+        nf1=$(echo "$nf0" | sed "s/---/-/g;s/--/-/g;s/[']//g")
+        mv -n "$f" "$nf1"
+        echo "$f > $nf1"
+    done
+
