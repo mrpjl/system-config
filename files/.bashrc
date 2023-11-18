@@ -52,9 +52,10 @@ alias clean='~/.config/scripts/clean.sh'
 alias scan='~/.config/scripts/scan'
 alias camera='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 alias pyenv='source ~/Windows/ECF6418FF6415B4A/development/python/.linux_env/bin/activate'
+alias sy='/home/me/Windows/ECF6418FF6415B4A/study'
 
 # alias cdt='cd "$(find ~ -type d | fzf)" '
-alias cdt='cd "$(find ~ -type d ! -path "*/.local/*" ! -path "*/.cache/*" ! -path "*/.mozilla/*" | fzf)" '
+alias cdt='cd "$(find ~ -type d ! -path "*/.*" | fzf)" '
 alias cde='cd "$(find /etc -type d | fzf)" '
 alias cdm='cd "$(find /media -type d | fzf)" '
 

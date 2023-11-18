@@ -39,9 +39,11 @@ fi
 echo -e "\n\e[1;33m Unused packages. \e[1;00m"
 pacman -Qdt
 
+#echo -e "\n\e[1;33m Remove unused packages. \e[1;00m"
+#if confirm; then
+#    sudo pacman -R $(pacman -Qdtq)
+#else
+#    echo "Skipped removing unused packages..."
+#fi
 echo -e "\n\e[1;33m Remove unused packages. \e[1;00m"
-if confirm; then
-    sudo pacman -R $(pacman -Qdtq)
-else
-    echo "Skipped removing unused packages..."
-fi
+sudo pacman -R $(pacman -Qdtq)

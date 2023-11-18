@@ -182,8 +182,8 @@ else
 fi
 
 if grep -q "#ParallelDownloads" "/etc/pacman.conf"; then
-  sudo sed -i 's/#ParallelDownloads.*/ParallelDownloads = 5/' "/etc/pacman.conf"
-  echo $'\u2714' "5 Parallel Downloads"
+  sudo sed -i 's/#ParallelDownloads.*/ParallelDownloads = 10/' "/etc/pacman.conf"
+  echo $'\u2714' "10 Parallel Downloads"
 fi
 
 if [[ ! -d /etc/pacman.d/hooks ]]; then

@@ -215,11 +215,13 @@ set $white      #fbf1c7
 bar {
 	status_command i3blocks -c /home/me/.config/i3/i3blocks.conf
     position top
+    i3bar_command i3bar --transparency
+    # tray_output none
     separator_symbol ""
-    font pango:Terminus Bold 9
+    font pango:Terminus Bold 8
     colors {
         # bar background color
-        background #000000
+        background #0000004D
         # text color used for blocks that do not have a color specified.
         statusline $white
         # workspaces section            
@@ -252,6 +254,7 @@ bindsym $mod+comma exec --no-startup-id reboot
 #for_window [window_role="Tilda"] floating disable  
 bindsym $alt+k exec --no-startup-id keepassxc
 bindsym $alt+f exec --no-startup-id firefox
+bindsym $alt+c exec --no-startup-id chromium
 bindsym $alt+q exec --no-startup-id qutebrowser
 bindsym $alt+comma exec --no-startup-id $scripts/stop
 
@@ -260,7 +263,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && $scrip
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && $scripts/changebrightness
 
 # Display wallpaper
-exec --no-startup-id feh --bg-scale /home/me/Pictures/cg.jpg
+exec --no-startup-id feh --bg-scale /home/me/Pictures/au.jpg
 # Assign Workspace
 for_window [class="Chromium"] move to workspace $ws2
 for_window [class="firefox"] move to workspace $ws2

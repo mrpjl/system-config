@@ -26,7 +26,7 @@ find $1 -type d -print0 |
 find $1 -type f -print0 | 
     while IFS= read -r -d '' f
     do 
-        nf0=$(echo "$f" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g;s/_/-/g;s/[,"]//g')
+        nf0=$(echo "$f" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g;s/_/-/g;s/[,|｜＊"]//g')
         nf1=$(echo "$nf0" | sed "s/---/-/g;s/--/-/g;s/[']//g")
         mv -n "$f" "$nf1"
         echo "$f > $nf1"

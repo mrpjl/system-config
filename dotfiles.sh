@@ -45,3 +45,7 @@ cp ~/.config/dircolors/.dircolors ./files/
 
 # Copy the TMUX configuration file(s)
 cp -r ~/.config/tmux ./files/
+
+# Copy Hosts file from Steven Black
+curl https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts > ./files/hosts.txt
+

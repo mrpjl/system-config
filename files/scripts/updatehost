@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "# Static table lookup for hostnames." > /tmp/hosts.txt
+echo "# See hosts(5) for details." >> /tmp/hosts.txt
+echo -e "\n" >> /tmp/hosts.txt
+echo "127.0.0.1     localhost" >> /tmp/hosts.txt
+echo "127.0.1.1     sun.localdomain     sun" >> /tmp/hosts.txt
+echo -e "\n" >> /tmp/hosts.txt
+echo "# Enable raw github view JIO/ACT problem." >> /tmp/hosts.txt
+echo "185.199.108.133 raw.githubusercontent.com" >> /tmp/hosts.txt
+echo -e "\n\n" >> /tmp/hosts.txt
+
+curl https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts > /tmp/stevenblack.txt
+
+awk 'NR>=34' /tmp/stevenblack.txt >> /tmp/hosts.txt
+
+sudo -s <<EOF
+cp /tmp/hosts.txt /etc/hosts
+EOF

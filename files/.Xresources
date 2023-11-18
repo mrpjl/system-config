@@ -5,10 +5,13 @@
 XTerm.termName: xterm-256color
 XTerm.vt100.locale: true
 ! XTerm.vt100.utf8: true
-Term*font: -*-terminus-*-*-*-18-*-*-*-*-*-iso10646-1
+! Term*font: -*-terminus-*-*-*-18-*-*-*-*-*-iso10646-1
 
+! Use a truetype font and size.
+xterm*faceName: Terminus
+xterm*faceSize: 12
 
-XTerm*faceNameDoublesize:Font Awesome
+XTerm*faceNameDoublesize:FontAwesome
 XTerm.vt100.faceName: terminus
 XTerm.utf8: 2
 XTerm.vt100.faceSize: 10
@@ -73,3 +76,8 @@ XTerm*visualBell: false
 Sxiv.background: #232323
 Sxiv.foreground: #fbf1c7
 Sxiv.font: terminus
+
+! NSXIV configuration
+Nsxiv.window.background: #232323
+Nsxiv.window.foreground: #fbf1c7
+Nsxiv.bar.font: terminus
